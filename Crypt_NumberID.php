@@ -53,8 +53,8 @@ class Crypt_NumberID
 	    mt_srand(time());
 		$str = sprintf("%02d", date("m") * 9);
 		$str .= sprintf("%02d", date("s"));
-		$str .= right(sprintf("%04d", date("z") * mt_rand(0, 16)), 4);
-		$str .= right(sprintf("%06d", $ID), 6);
+		$str .= substr(sprintf("%04d", date("z") * mt_rand(0, 16)), -4);
+		$str .= substr(sprintf("%06d", $ID), -6);
 	
 		$newstr = $str[12] . $str[6] . $str[8] . $str[1] . $str[4] . $str[11] . $str[2];
 		$newstr .= $str[7] . $str[9] . $str[3] . $str[5] . $str[10] . $str[0] . $str[13];
