@@ -19,7 +19,7 @@
   </Release>
   <FileList>
     <Dir>/</Dir>
-    <File>Rc4.php</File>
-    <File>NumberID.php</File>
+    <File>Crypt_Rc4.php</File>
+    <File>Crypt_NumberID.php</File>
   </FileList>
 </Package>
