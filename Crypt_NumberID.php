@@ -17,30 +17,36 @@
 // +----------------------------------------------------------------------+
 //
 // $Id$
+
+/**
+* Creates a handy ID of a Number
+* This is not a real encryption class, but it can be usefull.
+*
+* Especialy for eshops it's handy that the user gets another order nr than
+* the normal used order ID. A regular customer can see if the store is successfull
+* just by looking at the orderid's.
+*
+* This class created an order number that can be used as a referal for the customer. Intern
+* you can still use the order ID.
+*
+* Ofcourse it's possible to make an number of any id.
+*
+* The numbers are unique as long ID is below 1000000.
+*
+* @access public
+* @package Crypt
+* @author Dave Mertens <dmertens@zyprexia.com>
+* @version $Revision$
+*/
 class Crypt_NumberID
 {
 
-	/**
-	*
-	* This is not a real encryption class, but it can be usefull.
-	*
-	* Especialy for eshops it's handy that the user gets another order nr than
-	* the normal used order ID. A regular customer can see if the store is successfull
-	* just by looking at the orderid's.
-	*
-	* This class created an order number that can be used as a referal for the customer. Intern
-	* you can still use the order ID.
-	*
-	* Ofcourse it's possible to make an number of any id.
-	*
-	* The numbers are unique as long ID is below 1000000.
-	*/
-	
 	/**
 	* translate an ID into a number
 	*
 	* @param long $ID	- Identifier
 	* @return string containing the number
+	* @access public	
 	*/
 	function toNumber($ID)
 	{
@@ -61,6 +67,7 @@ class Crypt_NumberID
 	*
 	* @param string nr - number create by toNumber function
 	* @return long ID - your original ID
+	* @access public
 	*/
 	function toId($nr)
 	{
