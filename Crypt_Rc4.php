@@ -19,54 +19,52 @@
 // $Id$
 
 
-/*****
-	RC4 stream cipher routines implementation in PHP4 based on code written by  
-	Damien Miller <djm@mindrot.org> 
-	
-	crypt is used to encrypt AND decrypt the messages!
-	
-	Usage:
-	$key = "pear";
-	$message = "PEAR rulez!";
-	
-	$rc4 = new RC4;
-	$rc4->key($key);
-	echo "Original message: $message <br>\n";
-	$rc4->crypt($message);
-	echo "Encrypted message: $message <br>\n";
-	$rc4->crypt($message);
-	echo "Decrypted message: $message <br>\n";
-	
-*****/
-
 /**
- * RC4 stream cipher routines implementation in PHP4 based on code written by
- * Damien Miller <djm@mindrot.org>
- *
- * @version 0.1
- * @author Dave Mertens <dmertens@zyprexia.com>
- */
-        
+* RC4 stream cipher routines implementation
+*
+* in PHP4 based on code written by Damien Miller <djm@mindrot.org>
+*
+* Usage:
+* $key = "pear";
+* $message = "PEAR rulez!";
+*
+* $rc4 = new RC4;
+* $rc4->key($key);
+* echo "Original message: $message <br>\n";
+* $rc4->crypt($message);
+* echo "Encrypted message: $message <br>\n";
+* $rc4->decrypt($message);
+* echo "Decrypted message: $message <br>\n";
+*
+* @version $Revision$
+* @access public
+* @package Crypt
+* @author Dave Mertens <dmertens@zyprexia.com>
+ */       
 class Crypt_RC4 {
-	var $s= array();
-	var $i= 0;
-	var $j= 0;
-	
+    
     /**
-    * Class Constructor.
-    *
-    * @return bool always true;
+    * Real programmers...
+    * @var array
     */
-
-	function RC4() {
-		return true;
-	}
+	var $s= array();
+    /**
+    * Real programmers...
+    * @var array
+    */
+	var $i= 0;
+    /**
+    * Real programmers...
+    * @var array
+    */	
+	var $j= 0;
 	
     /**
     * Assign encryption key to class
     *
     * @param  string key	- Key which will be used for encryption
     * @return void
+    * @access public    
     */
 	function key(&$key) {
 		$len= strlen($key);
@@ -85,10 +83,11 @@ class Crypt_RC4 {
 	}
 
     /**
-    * Encrypt/decrypt function
+    * Encrypt function
     *
     * @param  string paramstr 	- string that will encrypted
     * @return void
+    * @access public    
     */
 	function crypt(&$paramstr) {
 		$len= strlen($paramstr);
@@ -104,6 +103,29 @@ class Crypt_RC4 {
 			$paramstr[$c] = chr(ord($paramstr[$c]) ^ $this->s[$t]);
 		}
 	}
+
+    /**
+    * Decrypt function
+    *
+    * @param  string paramstr 	- string that will decrypted
+    * @return void
+    * @access public    
+    */
+	function decrypt(&$paramstr) {
+		$len= strlen($paramstr);
+		for ($c= 0; $c < $len; $c++) {
+			$this->i = ($this->i + 1) % 256;
+			$this->j = ($this->j + $this->s[$this->i]) % 256;
+			$t = $this->s[$this->i];
+			$this->s[$this->i] = $this->s[$this->j];
+			$this->s[$this->j] = $t;
+
+			$t = ($this->s[$this->i] + $this->s[$this->j]) % 256;
+
+			$paramstr[$c] = chr(ord($paramstr[$c]) ^ $this->s[$t]);
+		}
+	}
+	
 
 }	//end of RC4 class
 ?>
