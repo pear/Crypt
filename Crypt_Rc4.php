@@ -47,7 +47,7 @@
  * @author Dave Mertens <dmertens@zyprexia.com>
  */
         
-class RC4 {
+class Crypt_RC4 {
 	var $s= array();
 	var $i= 0;
 	var $j= 0;
