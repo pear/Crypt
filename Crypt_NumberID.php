@@ -20,7 +20,7 @@
 
 /**
 * Creates a handy ID of a Number
-* This is not a real encryption class, but it can be usefull.
+* This is not a real encryption class, but it can be useful.
 *
 * Especialy for eshops it's handy that the user gets another order nr than
 * the normal used order ID. A regular customer can see if the store is successfull
