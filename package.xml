@@ -20,8 +20,10 @@
     	The classes needs to be updated to follow the pear coding standards.
     </notes>
     <filelist>
+     <dir name="/" baseinstalldir="Crypt">
       <file role="php">Crypt_Rc4.php</file>
       <file role="php">Crypt_NumberID.php</file>
+     </dir>
     </filelist>
   </release>
 </package>
