@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE package SYSTEM "../package.dtd">
 <!-- do not use the "Type" attribute here, that one is only for
      generated package.xml files -->
-<package>
+<package version="1.0">
   <name>Crypt</name>
   <summary>Several encryption classes</summary>
-  <maintainer>
-    <user>zyprexia</user>
-    <name>Dave Mertens</name>
-    <email>dmertens@zyprexia.com</email>
-  </maintainer>
+  <maintainers>
+    <maintainer>
+      <user>zyprexia</user>
+      <name>Dave Mertens</name>
+      <email>dmertens@zyprexia.com</email>
+    </maintainer>
+  </maintainers>
   <release>
     <version>0.1</version>
     <date>2001-07-22</date>
@@ -16,10 +19,9 @@
     	This is the first release of the encryption classes. 
     	The classes needs to be updated to follow the pear coding standards.
     </notes>
+    <filelist>
+      <file role="php">Crypt_Rc4.php</file>
+      <file role="php">Crypt_NumberID.php</file>
+    </filelist>
   </release>
-  <filelist>
-    <dir>/</dir>
-    <file>Crypt_Rc4.php</file>
-    <file>Crypt_NumberID.php</file>
-  </filelist>
 </package>
