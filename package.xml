@@ -4,6 +4,7 @@
      generated package.xml files -->
 <package version="1.0">
   <name>Crypt</name>
+  <description>Several encryption classes</description>
   <summary>Several encryption classes</summary>
   <maintainers>
     <maintainer>
@@ -14,6 +15,8 @@
   </maintainers>
   <release>
     <version>0.1</version>
+    <license>PHP</license>
+    <state>stable</state>
     <date>2001-07-22</date>
     <notes>
     	This is the first release of the encryption classes. 
